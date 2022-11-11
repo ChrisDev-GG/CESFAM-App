@@ -12,14 +12,25 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public function Game(){
+        return $this->hasMany(Game::class);
+    }
+    public function UserType(){
+        return $this->belongsTo(UserType::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'names',
+        'surenames',
+        'username',
+        'phone',
         'email',
+        'user_type',
         'password',
     ];
 
@@ -41,4 +52,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function setPasswordAttribute($value){
+        $this->attributes['password'] = bcrypt($value);
+    }
 }

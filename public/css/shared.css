@@ -128,10 +128,11 @@ body {
 
 /*
  * Custom Fixes by Chris
+ * -------------------------------------------------------------------------------------------------
  */
 
 .title-cesfam{
-color: aliceblue;
+  color: aliceblue;
 }
 
 body{
@@ -146,12 +147,38 @@ background-color: #3E4782;
   color:black;
 }
 
+.nav-masthead .nav-link{
+  color: rgb(255, 255, 255)!important;
+}
+.btn-nav{
+  margin-left: 3px;
+}
+
+.navbar{
+  gap: 10px;
+}
+
+.btn-games{
+  background-color: rgb(236, 236, 236);
+  color: black;
+}
+
 .spacing{
   margin: auto;
   margin-right: 10px;
   margin-left: 10px;
   margin-bottom: 15px;
 }
+
+
+
+.topo{
+  margin-bottom: 12px;
+}
+.simon{
+  margin-bottom: 25px;
+}
+
 
 .center-cards{
   align-items: center;
@@ -168,9 +195,28 @@ background-color: #3E4782;
   max-width: 80px;
   margin: 5px;
 }
+.speaker-logo{
+  max-width: 80px;
+  margin: 5px;
+}
 .play-logo:hover{
   max-width: 90px;
   margin: 0px;
+}
+
+.btn-play{
+  background: transparent;
+  border: none;
+}
+
+.btn-game{
+  min-width: 100%;
+  min-height: 60px;
+  align-items: baseline;
+}
+
+.btn-text{
+  margin-top: 3px;
 }
 
 @media (min-width: 765px) {
@@ -185,9 +231,15 @@ background-color: #3E4782;
   }
 }
 
+@media (min-width: 768px) {
+  .title-cesfam{
+    margin-left: 80%;
+  }
+}
+
 @media (max-width: 500px) {
   .card{
-    width: 60%;
+    width: 70%;
   }
 }
 
