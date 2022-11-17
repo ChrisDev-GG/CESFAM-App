@@ -1,0 +1,37 @@
+@extends('shared')
+
+@section('main-content')
+<div>
+    <a href="/gestor/registros"><img class="back-img" src="{{asset('img/back.png')}}" width="50" alt="back icon" style="padding-bottom: 15px"></a>
+    <h1 class="h1-titles" style="display: inline">Registros Golpea el Topo</h1>
+</div><br>
+
+        <div class="form-group form-pd search">
+            <input type="text" class="form-control form-rut" id="InputName" placeholder="Ingresar Nombre" name="name">
+            <a href="" class="btn btn-success btn-search"><b>Buscar por nombre</b></a>
+        </div><br><br>
+
+    <div class="container-fluid table-responsive">
+        <table class="table table-bordered">
+
+            <thead>
+                <tr class="table-info">
+                    <th scope="col">Puntaje</th>
+                    <th scope="col">Nombre completo</th>
+                    <th scope="col">Nombre de usuario</th>
+                    <th scope="col">Fecha de juego</th>
+                </tr>
+            </thead>    
+            <tbody>          
+                @foreach($registros as $registro)
+                <tr class="bg-primary">
+                    <th>{{$registro->score}}</th>
+                    <th>{{$registro->fullname}}</th>
+                    <th>{{$registro->username}}</th>
+                    <th>{{$registro->created_at}}</th>
+                </tr>
+                @endforeach 
+            </tbody>
+        </table>
+    </div>
+@endsection

@@ -106,7 +106,7 @@
                   <input type="email" class="form-control" id="email" placeholder="Ingrese su email" name="email" value="{{old('email')}}">
                 </div>
                 <div class="form-group">
-                  <label for="nombre_usuario class="h4 mb-3 fw-md"" class="h4 mb-3 fw-md"><b>Nombre de Usuario</b></label>
+                  <label for="nombre_usuario" class="h4 mb-3 fw-md" class="h4 mb-3 fw-md"><b>Nombre de Usuario</b></label>
                   <input type="text" class="form-control" id="nombre_usuario" placeholder="Crear nombre de usuario" name="nombre_usuario" value="{{old('nombre_usuario')}}">
                 </div>
 

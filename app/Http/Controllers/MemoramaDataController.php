@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Game;
+use App\Models\Score;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class MemoramaDataController extends Controller
 {
+private $viewMemorama = 'Registros.memorama_registros';
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +18,20 @@ class MemoramaDataController extends Controller
      */
     public function index()
     {
-        //
+
+        $registros = Score::where('id_game', '=', 1)->get();
+        foreach($registros as $registro){
+            $user = User::where('id', '=', $registro->id_user)->first();
+            $fullname = $user->names.' '.$user->surenames;
+            $username = $user->username;
+            $registro->append('fullname');
+            $registro->append('username');
+            $registro->fullname = $fullname;
+            $registro->username = $username;
+        }
+        return view($this->viewMemorama, [
+            'registros' => $registros,
+        ]);
     }
 
     /**

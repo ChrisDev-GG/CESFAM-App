@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Score;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class SimonDiceDataController extends Controller
 {
+    public $viewSimon = 'Registros.simon_registros'; 
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +17,19 @@ class SimonDiceDataController extends Controller
      */
     public function index()
     {
-        //
+        $registros = Score::where('id_game', '=', 2)->get();
+        foreach($registros as $registro){
+            $user = User::where('id', '=', $registro->id_user)->first();
+            $fullname = $user->names.' '.$user->surenames;
+            $username = $user->username;
+            $registro->append('fullname');
+            $registro->append('username');
+            $registro->fullname = $fullname;
+            $registro->username = $username;
+        }
+        return view($this->viewSimon, [
+            'registros' => $registros,
+        ]);
     }
 
     /**

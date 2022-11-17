@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row center-cards">
             <div class="card col-3 spacing">
-            <img class="card-img-top" src="{{asset('img/usuarios.png')}}" alt="Card image cap">
+            <img class="card-img-top registros-img" src="{{asset('img/usuarios.png')}}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title txt-color">Usuarios</h5>
                     <p class="card-text txt-color">Presione el boton de abajo para ir a la sección para gestionar usuarios.</p>

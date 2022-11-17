@@ -22,7 +22,7 @@ class RegisterController extends Controller
             'confirmation_password' => $request->confirmar_contraseña,
             'email' => $request->email ?? null,
             'phone' => $request->telefono ?? null,
-            'birth_date' => $request->fecha_de_nacimiento ?? null,
+            'birth_date' => $request->fecha_de_nacimiento,
             'user_type' => 3,
         ]);
         return redirect('/home');

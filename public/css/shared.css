@@ -219,6 +219,43 @@ background-color: #3E4782;
   margin-top: 3px;
 }
 
+table{
+  color: white!important;
+}
+.table-btn{
+  display: flex;
+  gap: 8px;
+}
+
+#InputName{
+  max-width: 60%;
+  margin: auto;
+  margin-right: 0px;
+}
+.search{
+  display: flex;
+  margin: auto;
+}
+.btn-search{
+  margin: auto;
+  margin-left: 0px;
+}
+
+.sm-form{
+  margin: auto;
+  max-width: 60%;
+}
+
+.sm-form label{
+  margin-top: 5px;
+  padding-bottom: 2px;
+}
+
+.dropdown-toggle{
+  color: white; 
+  font-weight: 400;
+}
+
 @media (min-width: 765px) {
   .btn-flex{
     width: max-content;
@@ -235,11 +272,34 @@ background-color: #3E4782;
   .title-cesfam{
     margin-left: 80%;
   }
+  
+}
+@media (max-width: 768px) {
+
+  .admin-img{
+    max-width: 135px!important;
+  }
+  .registros-img{
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
 }
 
 @media (max-width: 500px) {
   .card{
     width: 70%;
+  }
+
+  .h1-titles{
+    display: block!important;
+  }
+
+  .search{
+    display: block;
+  }
+
+  #InputName{
+    margin-right: auto;
   }
 }
 

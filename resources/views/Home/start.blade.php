@@ -34,7 +34,7 @@
                         @endauth
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="/logout">Gestionar Registros</a>
+                            <a class="dropdown-item" href="/gestor">Gestionar Registros</a>
                             <a class="dropdown-item" href="/logout">Cerrar Sesión</a>
                         </div>
                     </div>

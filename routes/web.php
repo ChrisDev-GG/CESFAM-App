@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\AdminsDataController;
 use App\Http\Controllers\AdminViewsController;
 use App\Http\Controllers\CardGameController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DragAndDropColorsController;
+use App\Http\Controllers\GolpeaTopoDataController;
 use App\Http\Controllers\GolpeaTopoGameController;
 use App\Http\Controllers\HomeAdminController;
 use App\Http\Controllers\HomeController;
@@ -12,8 +14,10 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\MemoramaDataController;
 use App\Http\Controllers\MemoramaGameController;
 use App\Http\Controllers\RegistrosController;
+use App\Http\Controllers\SimonDiceDataController;
 use App\Http\Controllers\SimonDiceGameController;
 use App\Http\Controllers\UsuariosController;
+use App\Http\Controllers\UsuariosDataController;
 use Illuminate\Auth\Events\Logout;
 use Illuminate\Support\Facades\Route;
 
@@ -52,7 +56,13 @@ Route::get('/golpeatopo', [GolpeaTopoGameController::class, 'index']);
 Route::get('/gestor/registros', [RegistrosController::class, 'index']);
 Route::get('/gestor/usuarios', [UsuariosController::class, 'index']);
 
-Route::resource('/gestor/usuarios', UsuariosController::class);
+Route::resource('/registros/memorama', MemoramaDataController::class);
+Route::resource('/registros/topo', GolpeaTopoDataController::class);
+Route::resource('/registros/simon', SimonDiceDataController::class);
+
+Route::resource('/gestor/usuarios/users', UsuariosDataController::class);
+Route::resource('/gestor/usuarios/admins', AdminsDataController::class);
+
 
 
 

@@ -15,7 +15,7 @@
                 <div class="card-body">
                     <h5 class="card-title txt-color">Registros</h5>
                     <p class="card-text txt-color">Revisar los registros del juego "Memorama".</p>
-                    <a href="#" class="btn btn-primary btn-game"><h4 class="btn-text">Visitar</h4></a>
+                    <a href="/registros/memorama" class="btn btn-primary btn-game"><h4 class="btn-text">Visitar</h4></a>
                 </div>
             </div>
 
@@ -24,7 +24,7 @@
                 <div class="card-body">
                     <h5 class="card-title txt-color">Registros</h5>
                     <p class="card-text txt-color">Revisar los registros del juego "Simon dice".</p>
-                    <a href="/cardgame" class="btn btn-primary btn-game"><h4 class="btn-text">Visitar</h3></a>
+                    <a href="/registros/simon" class="btn btn-primary btn-game"><h4 class="btn-text">Visitar</h3></a>
                 </div>
             </div>
 
@@ -33,7 +33,7 @@
                     <div class="card-body">
                         <h5 class="card-title txt-color">Registros</h5>
                         <p class="card-text txt-color">Revisar los registros del juego "Golpea al topo"</p>
-                        <a href="/cardgame" class="btn btn-primary btn-game"><h4 class="btn-text">Visitar</h3></a>
+                        <a href="/registros/topo" class="btn btn-primary btn-game"><h4 class="btn-text">Visitar</h3></a>
                     </div>
                 </div>
         </div>

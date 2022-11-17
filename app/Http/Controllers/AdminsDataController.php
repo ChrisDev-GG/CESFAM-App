@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class UsuariosDataController extends Controller
+class AdminsDataController extends Controller
 {
-
-    private $viewUsuarios = 'Usuarios.users_registros';
+    private $viewAdmin = 'Usuarios.admin_registros';
+    private $viewAdminCreate = 'Usuarios.admin_registros_create';
 
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class UsuariosDataController extends Controller
      */
     public function index()
     {
-        $registros = User::where('user_type','=','3')->get();
-        return view($this->viewUsuarios, [
+        $registros = User::where('user_type','!=','3')->get();
+        return view($this->viewAdmin, [
             'registros' => $registros,
         ]);
     }
@@ -30,7 +30,7 @@ class UsuariosDataController extends Controller
      */
     public function create()
     {
-        //
+        return view($this->viewAdminCreate);
     }
 
     /**

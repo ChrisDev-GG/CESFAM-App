@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Score;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class GolpeaTopoDataController extends Controller
 {
-    private $gameView = 'registros.golpea_topo';
+    private $viewTopo = 'Registros.topo_registros';
     
     /**
      * Display a listing of the resource.
@@ -15,7 +17,19 @@ class GolpeaTopoDataController extends Controller
      */
     public function index()
     {
-        return view($this->gameView);
+        $registros = Score::where('id_game', '=', 3)->get();
+        foreach($registros as $registro){
+            $user = User::where('id', '=', $registro->id_user)->first();
+            $fullname = $user->names.' '.$user->surenames;
+            $username = $user->username;
+            $registro->append('fullname');
+            $registro->append('username');
+            $registro->fullname = $fullname;
+            $registro->username = $username;
+        }
+        return view($this->viewTopo, [
+            'registros' => $registros,
+        ]);
     }
 
     /**
