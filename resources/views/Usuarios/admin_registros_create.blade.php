@@ -27,7 +27,7 @@
               </div>
               <div class="form-group sm-form">
                 <label for="nombre_usuario" class="h4 mb-3 fw-md" class="h4 mb-3 fw-md"><b>Nombre de Usuario</b></label>
-                <input type="text" class="form-control" id="nombre_usuario" placeholder="Crear nombre de usuario" name="nombre_usuario" value="{{old('nombre_usuario')}}">
+                <input type="text" class="form-control" id="nombre_usuario" placeholder="Crear nombre de usuario" name="nombre_de_usuario" value="{{old('nombre_de_usuario')}}">
               </div>
 
               <div class="form-group sm-form">

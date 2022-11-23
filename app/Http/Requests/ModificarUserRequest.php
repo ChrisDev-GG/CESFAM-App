@@ -27,9 +27,8 @@ class ModificarUserRequest extends FormRequest
             'nombres' => 'nullable',
             'apellidos' => 'nullable',
             'email' => 'nullable|unique:users,email',
-            'nombre_usuario' => 'nullable|unique:users,username',
-            'contraseña' => 'nullable|min:6|same:contraseña',
-            'confirmar_contraseña' => 'required',
+            'nombre_de_usuario' => 'nullable|unique:users,username',
+            'contraseña' => 'nullable|min:6',
             'telefono' => 'nullable|min:8',
             'fecha_de_nacimiento' => 'nullable',
         ];

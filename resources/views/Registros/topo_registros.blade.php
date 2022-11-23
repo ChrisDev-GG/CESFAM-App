@@ -1,18 +1,22 @@
 @extends('shared')
 
+@section('shared-links')
+    <link href="{{asset('css/data-table.css')}}" rel="stylesheet">
+@endsection
+
 @section('main-content')
 <div>
     <a href="/gestor/registros"><img class="back-img" src="{{asset('img/back.png')}}" width="50" alt="back icon" style="padding-bottom: 15px"></a>
-    <h1 class="h1-titles" style="display: inline">Registros Golpea el Topo</h1>
+    <h1 class="h1-titles" style="display: inline">&nbsp;&nbsp;Registros Golpea el Topo</h1>
 </div><br>
 
-        <div class="form-group form-pd search">
+        {{-- <div class="form-group form-pd search">
             <input type="text" class="form-control form-rut" id="InputName" placeholder="Ingresar Nombre" name="name">
             <a href="" class="btn btn-success btn-search"><b>Buscar por nombre</b></a>
-        </div><br><br>
+        </div><br><br> --}}
 
     <div class="container-fluid table-responsive">
-        <table class="table table-bordered">
+        <table class="table table-bordered" id="topo-table">
 
             <thead>
                 <tr class="table-info">
@@ -34,4 +38,21 @@
             </tbody>
         </table>
     </div>
+@endsection
+
+@section('js')
+    <script>
+        $(document).ready(function() {
+            $('#topo-table').dataTable( {
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+                },
+                dom: 'ftip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+                "iDisplayLength": 30,
+            });
+        });
+    </script>
 @endsection

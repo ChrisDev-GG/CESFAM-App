@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ModificarUserRequest;
 use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
 
 class UsuariosDataController extends Controller
@@ -73,9 +75,22 @@ class UsuariosDataController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ModificarUserRequest $request, $id)
     {
-        //
+        try{
+            $request->validated();
+            $user = User::where('id','=',$id)->first();
+            $request->nombres = $request->nombres ? $user->names = $request->nombres : "";
+            $request->apellidos = $request->apellidos ? $user->surenames = $request->apellidos : "";
+            $request->nombre_de_usuario = $request->nombre_de_usuario ? $user->username = $request->nombre_de_usuario : "";
+            $request->email = $request->email ? $user->email = $request->email : "";
+            $request->telefono = $request->telefono ? $user->phone = $request->telefono : "";
+            $request->contraseña = $request->contraseña ? $user->password = $request->contraseña : "";
+            $user->save();
+            return redirect()->to('/usuarios/update_success');
+        }catch(Exception $e){
+            return redirect()->to('/usuariosdata')->withErrors($e->getMessage());
+        }
     }
 
     /**
@@ -87,5 +102,41 @@ class UsuariosDataController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Activate the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function activateUser($id) //We use this to deactivate instead 
+    {
+        try{
+            $user = User::where('id','=',$id)->first();
+            $status = $user->active == 0 ? $user->active = 1 : $user->active = 1;
+            $user->save();
+            return redirect()->to('/gestor/usuarios/admins');
+        }catch(Exception $e){
+            return redirect()->to('/gestor/usuarios/admins')->withErrors($e->getMessage());
+        }
+    }
+
+    /**
+     * Deactivate the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function deactivateUser($id) //We use this to deactivate instead 
+    {
+        try{
+            $user = User::where('id','=',$id)->first();
+            $status = $user->active == 0 ? $user->actuve = 1 : $user->active = 0;
+            $user->save();
+            return redirect()->to('/gestor/usuarios/admins');
+        }catch(Exception $e){
+            return redirect()->to('/gestor/usuarios/admins')->withErrors($e->getMessage());
+        }
     }
 }

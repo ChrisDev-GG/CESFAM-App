@@ -7,7 +7,7 @@
 @section('main-content')
 <div>
     <a href="/gestor/registros"><img class="back-img" src="{{asset('img/back.png')}}" width="50" alt="back icon" style="padding-bottom: 15px"></a>
-    <h1 class="h1-titles" style="display: inline">Registros Memorama</h1>
+    <h1 class="h1-titles" style="display: inline">&nbsp;&nbsp;Registros Memorama</h1>
 </div><br>
 
         {{-- <div class="form-group form-pd search">

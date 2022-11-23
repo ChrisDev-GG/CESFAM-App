@@ -29,7 +29,6 @@ class ModificarAdminRequest extends FormRequest
             'email' => 'nullable|unique:users,email',
             'nombre_usuario' => 'nullable|unique:users,username',
             'contraseña' => 'nullable|min:6|same:contraseña',
-            'confirmar_contraseña' => 'required',
             'telefono' => 'nullable|min:8',
             'fecha_de_nacimiento' => 'nullable',
         ];

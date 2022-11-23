@@ -29,7 +29,7 @@
               </div>
               <div class="form-group">
                 <label for="nombre_usuario" class="h4 mb-3 fw-md" class="h4 mb-3 fw-md">Nombre de Usuario - <b>Antiguo: {{$registro}}</b></label>
-                <input type="text" class="form-control" id="nombre_usuario" placeholder="Crear nombre de usuario" name="nombre_usuario" value="{{old('nombre_usuario')}}">
+                <input type="text" class="form-control" id="nombre_usuario" placeholder="Crear nombre de usuario" name="nombre_de_usuario" value="{{old('nombre_de_usuario')}}">
               </div>
 
               <div class="form-group">
@@ -42,10 +42,6 @@
                 <input type="password" class="form-control" id="contraseña" placeholder="Crear contraseña" name="contraseña">
               </div>
               
-              <div class="form-group">
-                <label for="confirmar_contraseña" class="h4 mb-3 fw-md"><b>Confirmar nueva contraseña</b></label>
-                <input type="password" class="form-control" id="confirmar_contraseña" placeholder="Confirmar contraseña" name="confirmar_contraseña">
-              </div>
               <div class="checkbox mb-3">
                 <label>
                 </label>

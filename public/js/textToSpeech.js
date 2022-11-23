@@ -6,4 +6,3 @@ if ("speechSynthesis" in window) {
   });
   demo.disabled = false;
 };
-  
