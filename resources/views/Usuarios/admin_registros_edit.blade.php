@@ -2,39 +2,40 @@
 
 @section('main-content')
 <div>
-    <a href="/gestor/usuarios"><img class="back-img" src="{{asset('img/back.png')}}" width="50" alt="back icon" style="padding-bottom: 15px"></a>
-    <h1 class="h1-titles" style="display: inline">Usuarios Administrativos</h1>
+    <a href="/gestor/usuarios/admins"><img class="back-img" src="{{asset('img/back.png')}}" width="50" alt="back icon" style="padding-bottom: 15px"></a>
+    <h1 class="h1-titles" style="display: inline">Modificar datos del administrador</h1>
 </div><br>
 
 <div>
-    <main class="form-signin w-100 m-auto form-max">
-        <form action="#" method="POST">
+    <main class="form-signin w-100 m-auto form-max"  style="max-width: 60%">
+        <form action="/gestor/usuarios/admins/{{$registro->id}}" method="POST" onsubmit="return isValidFormUsers();">
             @csrf
             @method('put')
-            <img class="login-img" src="{{asset('img/cesfam-logo.png')}}" width="140" height="140">
-            <h1 class="h3 mb-3 fw-lg"><b>Actualizar datos del Administrador</b></h1><br>
             @include('Messages.users-msg')
+            <div id="errors">
+
+            </div>
             <form>
               <div class="form-group">
-                <label for="nombres" class="h4 mb-3 fw-md">Nombres - <b>Antiguo: {{$registro}}</b></label>
+                <label for="nombres" class="h4 mb-3 fw-md">Nombres - <b>Antiguo: {{$registro->names}}</b></label>
                 <input type="text" class="form-control" id="nombres" placeholder="Ingrese sus nombres" name="nombres" value="{{old('nombres')}}">
               </div>
               <div class="form-group">
-                <label for="apellidos" class="h4 mb-3 fw-md">Apellidos - <b>Antiguo: {{$registro}}</b></label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Ingrese sus apellidos" name="apellidos" value="{{old('apellidos')}}">
+                <label for="apellidos" class="h4 mb-3 fw-md">Apellidos - <b>Antiguo: {{$registro->surenames}}</b></label>
+                <input type="text" class="form-control" id="apellidos" placeholder="Ingrese sus apellidos" name="apellidos" value="{{old('apellidos')}}">
               </div>
               <div class="form-group">
-                <label for="email" class="h4 mb-3 fw-md">Correo - <b>Antiguo: {{$registro}}</b></label>
+                <label for="email" class="h4 mb-3 fw-md">Correo - <b>Antiguo: {{$registro->email}}</b></label>
                 <input type="email" class="form-control" id="email" placeholder="Ingrese su email" name="email" value="{{old('email')}}">
               </div>
               <div class="form-group">
-                <label for="nombre_usuario" class="h4 mb-3 fw-md" class="h4 mb-3 fw-md">Nombre de Usuario - <b>Antiguo: {{$registro}}</b></label>
-                <input type="text" class="form-control" id="nombre_usuario" placeholder="Crear nombre de usuario" name="nombre_de_usuario" value="{{old('nombre_de_usuario')}}">
+                <label for="nombre_usuario" class="h4 mb-3 fw-md" class="h4 mb-3 fw-md">Nombre de Usuario - <b>Antiguo: {{$registro->username}}</b></label>
+                <input type="text" class="form-control" id="nombre_de_usuario" placeholder="Crear nombre de usuario" name="nombre_de_usuario" value="{{old('nombre_de_usuario')}}">
               </div>
 
               <div class="form-group">
-                <label for="date" class="h4 mb-3 fw-md">Fecha de nacimiento - <b>Antiguo: {{$registro}}</b></label>
-                <input type="date" class="form-control" id="date" placeholder="Seleccionar fecha" name="fecha_de_nacimiento" required>
+                <label for="date" class="h4 mb-3 fw-md">Fecha de nacimiento - <b>Antiguo: {{$registro->birth_date}}</b></label>
+                <input type="date" class="form-control" id="date" placeholder="Seleccionar fecha" name="fecha_de_nacimiento" >
               </div>
 
               <div class="form-group">
@@ -47,8 +48,7 @@
                 </label>
               </div>
               <input type="hidden" name="user_type" id="user_type" value="3">
-              <button class="w-100 btn btn-lg btn-primary" type="submit">Modificar datos</button>
-              <a href="/home"><img class="back-register" src="{{asset('img/back.png')}}" width="50" alt="back icon"></a>
+              <button class="w-100 btn btn-lg btn-primary" type="submit">Modificar datos</button><br><br>
             </form>
             
             <p class="mt-5 mb-3 text-muted"> <!-- &copy; 2022 --></p>
@@ -59,6 +59,7 @@
 @endsection
 
 @section('js')
+    <script src="{{asset('js/verifyData.js')}}"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>

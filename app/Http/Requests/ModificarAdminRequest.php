@@ -13,7 +13,7 @@ class ModificarAdminRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -27,7 +27,7 @@ class ModificarAdminRequest extends FormRequest
             'nombres' => 'nullable',
             'apellidos' => 'nullable',
             'email' => 'nullable|unique:users,email',
-            'nombre_usuario' => 'nullable|unique:users,username',
+            'nombre_de_usuario' => 'nullable|unique:users,username',
             'contraseña' => 'nullable|min:6|same:contraseña',
             'telefono' => 'nullable|min:8',
             'fecha_de_nacimiento' => 'nullable',

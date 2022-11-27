@@ -62,8 +62,8 @@ Route::resource('/registros/simon', SimonDiceDataController::class);
 
 Route::resource('/gestor/usuarios/users', UsuariosDataController::class);
 Route::resource('/gestor/usuarios/admins', AdminsDataController::class);
-Route::post('/gestor/usuarios/admins/{id}/activate', [AlumnosDataController::class, 'activateUser']);
-Route::post('/gestor/usuarios/admins/{id}/deactivate', [AlumnosDataController::class, 'deactivateUser']);
+Route::post('/gestor/usuarios/admins/{id}/activate', [AdminsDataController::class, 'activateUser']);
+Route::post('/gestor/usuarios/admins/{id}/deactivate', [AdminsDataController::class, 'deactivateUser']);
 
 
 

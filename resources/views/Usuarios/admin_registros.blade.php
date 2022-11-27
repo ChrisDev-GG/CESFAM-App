@@ -26,31 +26,34 @@
                     <th scope="col">Nombres</th>
                     <th scope="col">Apellidos</th>
                     <th scope="col">Nombre de Usuario</th>
-                    <th scope="col">Telefono</th>
                     <th scope="col">Email</th>
                     <th scope="col">Fecha de Nacimiento</th>
-                    <th scope="col">Modificar</th>
+                    <th scope="col" >Modificar</th>
                 </tr>
             </thead>    
                 <tbody>          
                     @foreach($registros as $registro)
-                        <tr class="bg-primary">
+                        @if($registro->active)
+                            <tr class="bg-primary">
+                        @else
+                            <tr class="bg-danger">
+                        @endif
+                        
                             <th>{{$registro->names}}</th>
                             <th>{{$registro->surenames}}</th>
                             <th>{{$registro->username}}</th>
-                            <th>{{$registro->phone ?? '---'}}</th>
-                            <th>{{$registro->email ?? '---'}}</th>
+                            <th>{{$registro->email}}</th>
                             <th>{{$registro->birth_date}}</th>
                             @if($registro->user_type != 1)
-                            <th class="table-btn d-flex justify-content-center"><a href="/registros/alumnos/{{$registro->id}}/edit"><button class="btn btn-info btn-p">Editar</button></a>
+                            <th class="d-flex justify-content-center"><a href="/gestor/usuarios/admins/{{$registro->id}}/edit"><button class="btn btn-info btn-p">Editar</button></a>
                                 <a>
                                 @if($registro->active)
-                                    <form action="/gestor/usuarios/users/{{$registro->id}}/deactivate" method="POST">
+                                    <form action="/gestor/usuarios/admins/{{$registro->id}}/deactivate" method="POST">
                                         @csrf
                                         <button type="submit" class="btn btn-danger btn-p">Desactivar</button></th>
                                     </form>
                                 @else
-                                    <form action="/gestor/usuarios/users/{{$registro->id}}/activate" method="POST">
+                                    <form action="/gestor/usuarios/admins/{{$registro->id}}/activate" method="POST">
                                         @csrf
                                         {{-- Same name but it activates it if it`s deactivated --}}
                                         <button type="submit" class="btn btn-success btn-p">Activar</button></th>
@@ -58,13 +61,13 @@
                                 @endif
                                     </a>
                             @else
-                                <th></th>
+                                <th>---</th>
                             @endif
                         </tr>
                     @endforeach
                 </tbody>
         </table>
-    </div>
+    </div><br><br>
 @endsection
 
 @section('js')

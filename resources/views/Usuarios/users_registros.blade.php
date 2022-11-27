@@ -2,6 +2,7 @@
 
 @section('shared-links')
     <link href="{{asset('css/data-table.css')}}" rel="stylesheet">
+
 @endsection
 
 @section('main-content')
@@ -9,6 +10,7 @@
     <a href="/gestor/usuarios"><img class="back-img" src="{{asset('img/back.png')}}" width="50" alt="back icon" style="padding-bottom: 15px"></a>
     <h1 class="h1-titles" style="display: inline">Usuarios registrados en la aplicación web</h1>
 </div><br><br>
+
 
         {{-- <div class="form-group form-pd search">
             <input type="text" class="form-control form-rut" id="InputName" placeholder="Ingresar Nombre" name="name">
@@ -38,7 +40,7 @@
                         <th>{{$registro->phone ?? '---'}}</th>
                         <th>{{$registro->email ?? '---'}}</th>
                         <th>{{$registro->birth_date}}</th>
-                        <th class="table-btn d-flex justify-content-center"><a href="/registros/alumnos/{{$registro->id}}/edit"><button class="btn btn-info btn-p">Editar</button></a>
+                        <th class="d-flex justify-content-center"><a href="/registros/alumnos/{{$registro->id}}/edit"><button class="btn btn-info btn-p">Editar</button></a>
                             <a>
                         @if($registro->active)
                             <form action="/gestor/usuarios/users/{{$registro->id}}/deactivate" method="POST">

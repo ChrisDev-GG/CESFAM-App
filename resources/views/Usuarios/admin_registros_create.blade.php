@@ -8,9 +8,8 @@
 
 <div>
     <main class="form-signin w-100 m-auto form-max">
-        <form action="#" method="POST" class="admin-form">
+        <form action="/gestor/usuarios/admins" method="POST" class="admin-form">
             @csrf
-            @method('put')
             @include('Messages.users-msg')
             <form>
               <div class="form-group sm-form">
@@ -22,17 +21,18 @@
                 <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Ingrese sus apellidos" name="apellidos" value="{{old('apellidos')}}">
               </div>
               <div class="form-group sm-form">
-                <label for="email" class="h4 mb-3 fw-md"><b>Correo</b></label>
+                <label for="email" class="h4 mb-3 fw-md"><b>Correo (opcional)
+                  </b></label>
                 <input type="email" class="form-control" id="email" placeholder="Ingrese su email" name="email" value="{{old('email')}}">
               </div>
               <div class="form-group sm-form">
                 <label for="nombre_usuario" class="h4 mb-3 fw-md" class="h4 mb-3 fw-md"><b>Nombre de Usuario</b></label>
-                <input type="text" class="form-control" id="nombre_usuario" placeholder="Crear nombre de usuario" name="nombre_de_usuario" value="{{old('nombre_de_usuario')}}">
+                <input type="text" class="form-control" id="nombre_de_usuario" placeholder="Crear nombre de usuario" name="nombre_de_usuario" value="{{old('nombre_de_usuario')}}">
               </div>
 
               <div class="form-group sm-form">
-                <label for="date" class="h4 mb-3 fw-md"><b>Fecha de nacimiento</b></label>
-                <input type="date" class="form-control" id="date" placeholder="Seleccionar fecha" name="fecha_de_nacimiento" required>
+                <label for="date" class="h4 mb-3 fw-md"><b>Fecha de nacimiento (opcional)</b></label>
+                <input type="date" class="form-control" id="date" placeholder="Seleccionar fecha" name="fecha_de_nacimiento">
               </div>
 
               <div class="form-group sm-form">
@@ -48,7 +48,7 @@
                 <label>
                 </label>
               </div>
-              <input type="hidden" name="user_type" id="user_type" value="3">
+              <input type="hidden" name="user_type" id="user_type" value="2">
               <button class="w-100 btn btn-lg btn-primary sm-form" type="submit">Registrar</button>
             </form>
             
@@ -64,4 +64,5 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+    
 @endsection

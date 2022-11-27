@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row center-cards img-game">
             <div class="card col-3 spacing">
-            <img class="card-img-top" src="{{asset('img/memorama.png')}}" alt="Card image cap">
+                <a href="/registros/memorama"><img class="card-img-top" src="{{asset('img/memorama.png')}}" alt="Card image cap"></a>
                 <div class="card-body">
                     <h5 class="card-title txt-color">Registros</h5>
                     <p class="card-text txt-color">Revisar los registros del juego "Memorama".</p>
@@ -20,7 +20,7 @@
             </div>
 
             <div class="card col-3 spacing">
-            <img class="card-img-top img-game simon" src="{{asset('img/simon-dice.jpg')}}" alt="Card image cap">
+                <a href="/registros/simon"><img class="card-img-top img-game simon" src="{{asset('img/simon-dice.jpg')}}" alt="Card image cap"></a>
                 <div class="card-body">
                     <h5 class="card-title txt-color">Registros</h5>
                     <p class="card-text txt-color">Revisar los registros del juego "Simon dice".</p>
@@ -29,7 +29,7 @@
             </div>
 
             <div class="card col-3 spacing img-game">
-                <img class="card-img-top topo" src="{{asset('img/topo.png')}}" alt="Card image cap">
+                <a href="/registros/topo"><img class="card-img-top topo" src="{{asset('img/topo.png')}}" alt="Card image cap"></a>
                     <div class="card-body">
                         <h5 class="card-title txt-color">Registros</h5>
                         <p class="card-text txt-color">Revisar los registros del juego "Golpea al topo"</p>

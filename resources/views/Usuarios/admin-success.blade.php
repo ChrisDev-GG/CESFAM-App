@@ -14,7 +14,7 @@
     <div class="modal-dialog" role="document">
     <div class="modal-content rounded-4 shadow">
         <div class="modal-header border-bottom-0">
-            <h1 class="modal-title fs-5">Apoderado suplente modificado</h1>
+            <h1 class="modal-title fs-5">Administrador modificado</h1>
         </div>
         <div class="modal-body py-0">
             <p class="modal-title">Datos del apoderado suplente actualizados. Puede volver al inicio o continuar en la sección de apoderados.</p>

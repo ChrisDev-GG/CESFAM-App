@@ -13,7 +13,7 @@ class RegistroAdminRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,14 @@ class RegistroAdminRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nombres' => 'required',
+            'apellidos' => 'required',
+            'email' => 'nullable|unique:users,email',
+            'nombre_de_usuario' => 'required|unique:users,username',
+            'contraseña' => 'required|min:6|same:contraseña',
+            'confirmar_contraseña' => 'required|min:6|same:contraseña',
+            'telefono' => 'nullable|min:8',
+            'fecha_de_nacimiento' => 'nullable',
         ];
     }
 }

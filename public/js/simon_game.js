@@ -195,6 +195,7 @@ const juego = () => {
 
                 $btnComenzar.disabled = false;
                 Swal.fire("Perdiste", `Has perdido. Tu puntuación fue de ${puntaje}. Puedes jugar de nuevo cuando quieras`);
+                
             }
         });
     });
@@ -216,7 +217,7 @@ const juego = () => {
     
     document.querySelector("#btn-speak")
           .onclick = () => {
-             const text = "bievenido, mira los colores que se van iluminando, continue la secuencia en el orden correcto";
+             const text = "bienvenido, mira los colores que se van iluminando, continue la secuencia en el orden correcto, buena suerte";
              const speech = new SpeechSynthesisUtterance();
   
              speech.text = text;
@@ -231,6 +232,16 @@ const juego = () => {
       
   
 }
+
+function speak (message) {
+    var msg = new SpeechSynthesisUtterance(message) 
+    var voices = window.speechSynthesis.getVoices() 
+    msg.voice = voices[0] 
+    window.speechSynthesis.speak(msg) 
+} 
+
+    speak('bienvenido, mira los colores que se van iluminando, continue la secuencia en el orden correcto, buena suerte');
+
 Swal.fire("Bienvenido", `Comienza a jugar, mira la secuencia e imítala (cuando hagas clic, espera a que el botón se apague para hacer el siguiente clic).
 <br>
 <br>

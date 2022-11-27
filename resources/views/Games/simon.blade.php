@@ -9,60 +9,37 @@
     <script src="{{asset('js/simon_d3.min.js')}}"></script>
     <script src="{{asset('js/simon_sweetalert2.min.js')}}"></script>
     <link rel="stylesheet" href="{{asset('css/simon_bootstrap.min.css')}}">
-    <style>
-        .boton {
-            cursor: pointer;
-        }
-
-        body {
-            padding-bottom: 70px;
-            padding-top: 70px;
-        }
-
-        .btn-play{
-            background: transparent;
-            border: none;
-        }
-    </style>
-</head>
-<body>
+    <link rel="stylesheet" href="{{asset('css/styleJuego2.css')}}">
+    <body>
     
-    <nav class="navbar navbar-expand-sm navbar-dark bg-primary fixed-top">
-        <a class="navbar-brand" target="_blank" href="">Simon dice</a>
-        <div class="collapse navbar-collapse" id="menu">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                
-            </ul>            
-        </div>
-    </nav>
+<header class="header">
+
+    <button id="flecha" class="btn  btn-lg"><a href="/home"><img src="{{asset('img/flecha.png')}}" alt="" width="100px" height="100px"></a>
+</button>
+</header>
+   
+         
+   
 <main class="container-fluid">
     <div class="row text-center">
-        <div class="col-12">
-            <h1>Simon dice</h1>
-        </div>
+       
         <div class="col-12 table-responsive">
-            <button id="comenzar" class="btn btn-primary btn-lg">Comenzar juego</button>
-            <br><br>
+
+            <p class="instrucciones">Bienvenido, mira los colores que se van iluminando, continue la secuencia en el orden correcto, buena suerte...</p>
+
+            <button id="btn-speak" class="btn btn-info btn-lg"> <img src="../img/sonido1.png" alt="" width="100px" height="100px"> </button>
+            <br>
             
-            <img class="speaker-logo" src="{{asset('img/speaker.png')}}" width="50" alt="Speaker icon">
-            <button type="button" id="btn-speak" class="btn-play">
-                <img class="play-logo" src="{{asset('img/play.png')}}" width="80" alt="Play logo">
-            </button>
-            <br><br>
-            {{-- <button id="btn-speak" class="btn btn-info btn-lg">hablar</button> --}}
+            <button id="comenzar" class="btn btn-primary btn-lg">Comenzar juego</button>
+          
+           
+
             <div id="contenedorJuego"></div>
             <br>
-            <a href="/home"><button id="" class="btn btn-danger btn-lg">Regresar</button></a>
-
+           
         </div>
     </div>
 </main>
-<footer class="px-2 py-2 fixed-bottom bg-primary">
-        <span class="text-white">Simon dice game. Written by
-            <a class="text-white" href="//parzibyte.me/blog">Parzibyte</a>
-            &nbsp;|&nbsp;
-        </span>
-</footer>
 <script src="{{asset('js/simon_game.js')}}"></script>
 </body>
 </html>

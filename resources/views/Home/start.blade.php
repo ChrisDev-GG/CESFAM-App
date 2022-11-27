@@ -8,6 +8,11 @@
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="{{asset('css/start.css')}}">
+    <style>
+        .navbar{
+            margin-right: 135px;
+        }
+    </style>
 
 </head>
 <body>
@@ -15,7 +20,7 @@
     <header class="header">
         <div class="cesfam-logo">
             <a class="logo">
-                <img src="{{asset('img/cesfam-logo.png')}}" class="cesfam-logo" alt="home-img">
+                <img src="{{asset('img/logo2.png')}}" class="cesfam-logo" alt="home-img">
             </a>
         </div>
         @guest    
@@ -60,9 +65,9 @@
         <div class="content text-center">
             <h1 class="heading"> Juegos <span>Cognitivos</span> </h1>
             <div class="center-play">
-                <img class="speaker-logo" src="{{asset('img/speaker.png')}}" width="50" alt="Speaker icon">
+                <p class="instruccion">Bienvenido Presione alguno de los botones que se encuentran debajo para entrar a uno de los juegos</p>
                 <button type="button" id="play-instructions" class="btn-play">
-                    <img class="play-logo" src="{{asset('img/play-logo.png')}}" width="80" alt="Play logo">
+                    <img class="play-logo" src="{{asset('img/sonido1.png')}}" width="80" alt="Play logo">
                 </button>
             </div>
         </div>
@@ -71,16 +76,16 @@
     <section class="menu" id="menu">
         <div class="box-container">
             <div class="box">
-                <a href="/memorama">  <img src="{{asset('img/amarillo.png')}}" class="play-btn" alt=""></a>
-                <p>Memorama</p>
+                <a href="/memorama">  <img src="{{asset('img/memorama.png')}}" class="play-btn" alt=""></a>
+                <a href="/memorama"><p>Memorama</p></a>
             </div>
             <div class="box">
-                <a href="/simondice"> <img src="{{asset('img/naranjo.png')}}" class="play-btn" alt=""> </a>
-                <p>Simon Dice</p>  
+                <a href="/simondice"> <img src="{{asset('img/simon_dice1.png')}}" class="play-btn" alt=""> </a>
+                <a href="/simondice"><p>Simon Dice</p></a>
             </div>
             <div class="box">
-                <a href="/golpeatopo"><img src="{{asset('img/rojo.png')}}" class="play-btn" alt=""></a>
-                <p>pegale al topo</p>
+                <a href="/golpeatopo"><img src="{{asset('img/mole.png')}}" class="play-btn" alt=""></a>
+                <a href="/golpeatopo"><p>pegale al topo</p></a>
             </div>
         </div>
     </section>

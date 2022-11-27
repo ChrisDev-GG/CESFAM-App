@@ -1,0 +1,36 @@
+.boton {
+    cursor: pointer;
+    
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding-bottom: 70px;
+    padding-top: 70px;
+}
+#comenzar{
+    color: black;
+    margin: 10px;
+    font-size: 3.5vmax;
+
+}
+#btn-speak{
+    background-color: rgb(163, 217, 224);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 30px;
+}
+#fecha{
+    background-color:rgb(163, 217, 224); 
+    margin-top:  0;
+}
+.instrucciones{
+
+    font-size: 30px;
+
+
+}

@@ -37,7 +37,7 @@
       @auth
           @if(auth()->user()->user_type != 3)
               <nav class="navbar">
-                  <div class="dropdown show btn-user">
+                  <div class="dropdown show btn-user" style="margin-right: 20px">
                       <a class="btn btn-secondary dropdown-toggle" href="" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       @auth
                       <b>{{auth()->user()->username}}</b>

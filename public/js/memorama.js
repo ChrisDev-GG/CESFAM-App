@@ -1,7 +1,10 @@
-var puntaje = 0;
+        var puntaje = 0;
         var conteo = 0;
 
+        Swal.fire("Bienvenido al Memorama", 'En este juego tendras que encontrar los pares de imagenes, tienes 28 intentos para completar el juego, sino pierdes, buena suerte! <br><br> Has click en el boton para empezar')
+
         generarTablero()
+
 
         function cargarIconos() {
             iconos = [
@@ -59,15 +62,43 @@ var puntaje = 0;
                 selecciones = []
                 conteo++;
                 document.getElementById("conteohtml").innerHTML = conteo;
-                if(conteo>28){
+                if(conteo>=28){
 
                     conteo = 28;
-                    alert("Ha perdido Reinicie...");
+        
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Has perdido...',
+                        html: "tu puntaje: "+puntaje+" intentos: "+conteo+"<br><br> Presione el boton nuevo juego para volver a intentarlo",
+                      })
+                      function speak (message) {
+                        var msg = new SpeechSynthesisUtterance(message) 
+                        var voices = window.speechSynthesis.getVoices() 
+                        msg.voice = voices[0] 
+                        window.speechSynthesis.speak(msg) 
+                    } 
+            
+                        speak('Has perdido,tu puntaje es de "'+puntaje+'" puntos  y fueron '+conteo+' intentos: " Presione el boton nuevo juego para volver a intentarlo');
+            
 
                 }
+      
                 if(puntaje == 12){
 
-                    alert("Ha ganado :D");
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Has Ganado...',
+                        html: "tu puntaje: "+puntaje+" intentos: "+conteo+"<br><br> Presione el boton nuevo juego para volver a intentarlo",
+                      })
+                      function speak (message) {
+                        var msg = new SpeechSynthesisUtterance(message) 
+                        var voices = window.speechSynthesis.getVoices() 
+                        msg.voice = voices[0] 
+                        window.speechSynthesis.speak(msg) 
+                    } 
+            
+                        speak('Has ganado,tu puntaje es de "'+puntaje+'" puntos y fueron '+conteo+' intentos " Presione el boton nuevo juego para volver a intentarlo');
+            
 
                 }
                 
@@ -93,15 +124,30 @@ var puntaje = 0;
                     puntaje=puntaje+100;
 
                     document.getElementById("puntajehtml").innerHTML = puntaje;
+
                     //window.alert(puntaje);
                 }
             }, 1000);
         }
+        document.querySelector("#btn-speak")
+        .onclick = () => {
+        const text = "En este juego tendras que encontrar los pares de imagenes, tienes 28 intentos para completar el juego, sino pierdes, buena suerte!";
+        const speech = new SpeechSynthesisUtterance();
+
+        speech.text = text;
+
+        speech.lang = "es";
+        speechSynthesis.speak(speech);
+
+        
+        }
+        
+
         function instrucciones(){
 
             document.querySelector("#btn-speak")
             .onclick = () => {
-               const text = "bievenidos";
+               const text = "bienvenidos";
                const speech = new SpeechSynthesisUtterance();
   
                speech.text = text;
@@ -113,5 +159,15 @@ var puntaje = 0;
           }
 
         }
+        function speak (message) {
+            var msg = new SpeechSynthesisUtterance(message) 
+            var voices = window.speechSynthesis.getVoices() 
+            msg.voice = voices[0] 
+            window.speechSynthesis.speak(msg) 
+        } 
 
-         
+            speak('En este juego tendras que encontrar los pares de imagenes, tienes 28 intentos para completar el juego, sino pierdes, buena suerte');
+
+
+           
+        

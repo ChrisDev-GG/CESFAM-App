@@ -12,10 +12,10 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    public function Game(){
+    public function game(){
         return $this->hasMany(Game::class);
     }
-    public function UserType(){
+    public function userType(){
         return $this->belongsTo(UserType::class);
     }
 

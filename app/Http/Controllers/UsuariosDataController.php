@@ -11,6 +11,8 @@ class UsuariosDataController extends Controller
 {
 
     private $viewUsuarios = 'Usuarios.users_registros';
+    private $viewUsuariosEdit = 'Usuarios.users_registros_edit';
+    
 
     /**
      * Display a listing of the resource.
@@ -65,7 +67,10 @@ class UsuariosDataController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::where('id','=',$id)->first();
+        return view($this->viewUsuariosEdit, [
+            'registro' => $user,
+        ]);
     }
 
     /**
@@ -85,11 +90,12 @@ class UsuariosDataController extends Controller
             $request->nombre_de_usuario = $request->nombre_de_usuario ? $user->username = $request->nombre_de_usuario : "";
             $request->email = $request->email ? $user->email = $request->email : "";
             $request->telefono = $request->telefono ? $user->phone = $request->telefono : "";
+            $request->fecha_de_nacimiento = $request->fecha_de_nacimiento ? $user->birth_date = $request->fecha_de_nacimiento : "";
             $request->contraseña = $request->contraseña ? $user->password = $request->contraseña : "";
             $user->save();
-            return redirect()->to('/usuarios/update_success');
+            return redirect()->to('/gestor/usuarios/users');
         }catch(Exception $e){
-            return redirect()->to('/usuariosdata')->withErrors($e->getMessage());
+            return redirect()->to('/gestor/usuarios/users')->withErrors($e->getMessage());
         }
     }
 
@@ -116,9 +122,9 @@ class UsuariosDataController extends Controller
             $user = User::where('id','=',$id)->first();
             $status = $user->active == 0 ? $user->active = 1 : $user->active = 1;
             $user->save();
-            return redirect()->to('/gestor/usuarios/admins');
+            return redirect()->to('/gestor/usuarios/users');
         }catch(Exception $e){
-            return redirect()->to('/gestor/usuarios/admins')->withErrors($e->getMessage());
+            return redirect()->to('/gestor/usuarios/users')->withErrors($e->getMessage());
         }
     }
 
@@ -134,9 +140,9 @@ class UsuariosDataController extends Controller
             $user = User::where('id','=',$id)->first();
             $status = $user->active == 0 ? $user->actuve = 1 : $user->active = 0;
             $user->save();
-            return redirect()->to('/gestor/usuarios/admins');
+            return redirect()->to('/gestor/usuarios/users');
         }catch(Exception $e){
-            return redirect()->to('/gestor/usuarios/admins')->withErrors($e->getMessage());
+            return redirect()->to('/gestor/usuarios/users')->withErrors($e->getMessage());
         }
     }
 }
