@@ -33,14 +33,18 @@
             </thead>    
             <tbody>          
                 @foreach($registros as $registro)
+                @if($registro->active)
                     <tr class="bg-primary">
+                @else
+                    <tr class="bg-danger">
+                @endif
                         <th>{{$registro->names}}</th>
                         <th>{{$registro->surenames}}</th>
                         <th>{{$registro->username}}</th>
                         <th>{{$registro->phone ?? '---'}}</th>
                         <th>{{$registro->email ?? '---'}}</th>
                         <th>{{$registro->birth_date}}</th>
-                        <th class="d-flex justify-content-center"><a href="/registros/alumnos/{{$registro->id}}/edit"><button class="btn btn-info btn-p">Editar</button></a>
+                        <th class="d-flex justify-content-center"><a href="/gestor/usuarios/users/{{$registro->id}}/edit"><button class="btn btn-info btn-p">Editar</button></a>
                             <a>
                         @if($registro->active)
                             <form action="/gestor/usuarios/users/{{$registro->id}}/deactivate" method="POST">

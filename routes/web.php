@@ -16,6 +16,7 @@ use App\Http\Controllers\MemoramaGameController;
 use App\Http\Controllers\RegistrosController;
 use App\Http\Controllers\SimonDiceDataController;
 use App\Http\Controllers\SimonDiceGameController;
+use App\Http\Controllers\SuccessController;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\UsuariosDataController;
 use Illuminate\Auth\Events\Logout;
@@ -64,6 +65,12 @@ Route::resource('/gestor/usuarios/users', UsuariosDataController::class);
 Route::resource('/gestor/usuarios/admins', AdminsDataController::class);
 Route::post('/gestor/usuarios/admins/{id}/activate', [AdminsDataController::class, 'activateUser']);
 Route::post('/gestor/usuarios/admins/{id}/deactivate', [AdminsDataController::class, 'deactivateUser']);
+Route::post('/gestor/usuarios/users/{id}/activate', [UsuariosDataController::class, 'activateUser']);
+Route::post('/gestor/usuarios/users/{id}/deactivate', [UsuariosDataController::class, 'deactivateUser']);
+
+Route::get('/gestor/usuarios/admin-updated', [SuccessController::class, 'successUpdateAdmin']);
+Route::get('/gestor/usuarios/admin-created', [SuccessController::class, 'successCreateAdmin']);
+Route::get('/gestor/usuarios/user-updated', [SuccessController::class, 'successUpdateUser']);
 
 
 

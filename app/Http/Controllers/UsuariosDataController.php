@@ -93,9 +93,9 @@ class UsuariosDataController extends Controller
             $request->fecha_de_nacimiento = $request->fecha_de_nacimiento ? $user->birth_date = $request->fecha_de_nacimiento : "";
             $request->contraseña = $request->contraseña ? $user->password = $request->contraseña : "";
             $user->save();
-            return redirect()->to('/gestor/usuarios/users');
+            return redirect()->to('/gestor/usuarios/user-updated');
         }catch(Exception $e){
-            return redirect()->to('/gestor/usuarios/users')->withErrors($e->getMessage());
+            return redirect()->to('/gestor/usuarios/user-updated')->withErrors($e->getMessage());
         }
     }
 

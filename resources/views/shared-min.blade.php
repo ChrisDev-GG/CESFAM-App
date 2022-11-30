@@ -27,7 +27,43 @@
             <li><a class="btn btn-primary btn-games btn-nav" href="/home">Sección de juegos</a></li>
             @yield('navigator')
           </ul>
-        </nav>         
+        </nav>      
+        @guest    
+          <nav class="navbar">
+              <a class="btn btn-primary btn-auth" href="/login" role="button">Iniciar Sesion</a>
+              <a class="btn btn-primary btn-auth" href="/register" role="button">Registrarse</a>
+          </nav>
+      @endguest
+      @auth
+          @if(auth()->user()->user_type != 3)
+              <nav class="navbar">
+                  <div class="dropdown show btn-user" style="margin-right: 20px">
+                      <a class="btn btn-secondary dropdown-toggle" href="" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      @auth
+                      <b>{{auth()->user()->username}}</b>
+                      @endauth
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          <a class="dropdown-item" href="/gestor">Gestionar Registros</a>
+                          <a class="dropdown-item" href="/logout">Cerrar Sesión</a>
+                      </div>
+                  </div>
+              </nav>
+          @else
+              <nav class="navbar">
+                  <div class="dropdown show btn-user">
+                      <a class="btn btn-secondary dropdown-toggle" href="" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      @auth
+                      <b>{{auth()->user()->username}}</b>
+                      @endauth
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="/logout">Cerrar Sesión</a>
+                      </div>
+                  </div>
+              </nav>
+          @endif
+      @endauth   
       </header>
   
 

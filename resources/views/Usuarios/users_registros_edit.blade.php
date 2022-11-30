@@ -8,7 +8,7 @@
 
 <div>
     <main class="form-signin w-100 m-auto form-max"  style="max-width: 60%">
-        <form action="/gestor/usuarios/admins/{{$registro->id}}" method="POST" onsubmit="return isValidFormUsers();">
+        <form action="/gestor/usuarios/users/{{$registro->id}}" method="POST" onsubmit="return isValidFormUsers();">
             @csrf
             @method('put')
             @include('Messages.users-msg')

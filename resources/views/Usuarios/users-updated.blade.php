@@ -14,14 +14,14 @@
     <div class="modal-dialog" role="document">
     <div class="modal-content rounded-4 shadow">
         <div class="modal-header border-bottom-0">
-            <h1 class="modal-title fs-5">Administrador modificado</h1>
+            <h1 class="modal-title fs-5">Usuario modificado</h1>
         </div>
         <div class="modal-body py-0">
-            <p class="modal-title">Datos del apoderado suplente actualizados. Puede volver al inicio o continuar en la sección de apoderados.</p>
+            <p class="modal-title">Datos del usuario actualizados. Puede volver al inicio o volver a continuar en la seccion de usuarios.</p>
         </div>
         <div class="modal-footer flex-column border-top-0">
-            <a href="/home" class="btn btn-lg btn-primary w-100 mx-0 mb-2"><i>Ir al inicio</i></a>
-            <a href="/registros/suplentes" type="button" class="btn btn-lg btn-light w-100 mx-0"><i>Gestionar apoderados suplentes</i></a>
+            <a href="/gestor" class="btn btn-lg btn-primary w-100 mx-0 mb-2"><i>Ir al inicio</i></a>
+            <a href="/gestor/usuarios/users" type="button" class="btn btn-lg btn-primary w-100 mx-0"><i>Gestionar usuarios</i></a>
         </div>
     </div>
     </div>

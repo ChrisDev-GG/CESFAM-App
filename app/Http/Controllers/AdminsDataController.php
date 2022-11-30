@@ -57,7 +57,7 @@ class AdminsDataController extends Controller
             'birth_date' => $request->fecha_de_nacimiento,
             'user_type' => 2,
         ]);
-        return redirect('/gestor/usuarios/admins');
+        return redirect('/gestor/usuarios/admin-created');
     }
 
     /**
@@ -104,7 +104,7 @@ class AdminsDataController extends Controller
         $request->telefono = $request->telefono ? $user->phone = $request->telefono : "";
         $request->fecha_de_nacimiento = $request->fecha_de_nacimiento ? $user->birth_date = $request->fecha_de_nacimiento : "";
         $user->save();
-        return redirect('/gestor/usuarios/admins');
+        return redirect('/gestor/usuarios/admin-updated');
     }
 
     /**
