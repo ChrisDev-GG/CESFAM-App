@@ -14,6 +14,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\MemoramaDataController;
 use App\Http\Controllers\MemoramaGameController;
 use App\Http\Controllers\RegistrosController;
+use App\Http\Controllers\SendGameDataController;
 use App\Http\Controllers\SimonDiceDataController;
 use App\Http\Controllers\SimonDiceGameController;
 use App\Http\Controllers\SuccessController;
@@ -34,7 +35,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('Home.home');
+    return redirect('/home');
 });
 
 // login and logout routes
@@ -71,6 +72,12 @@ Route::post('/gestor/usuarios/users/{id}/deactivate', [UsuariosDataController::c
 Route::get('/gestor/usuarios/admin-updated', [SuccessController::class, 'successUpdateAdmin']);
 Route::get('/gestor/usuarios/admin-created', [SuccessController::class, 'successCreateAdmin']);
 Route::get('/gestor/usuarios/user-updated', [SuccessController::class, 'successUpdateUser']);
+
+Route::post('/send/memorama/{score}', [SendGameDataController::class, 'sendGameDataMemorama']);
+Route::post('/send/simon/{score}', [SendGameDataController::class, 'sendGameDataSimon']);
+Route::post('/send/topo/{score}', [SendGameDataController::class, 'sendGameDataTopo']);
+
+Route::get('/registered', [RegisterController::class, 'registered']);
 
 
 

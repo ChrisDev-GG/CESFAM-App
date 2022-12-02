@@ -13,7 +13,7 @@ class HomeAdminController extends Controller
 
     public function index()
     {
-        return view('Admin.homeAdmin');
+        return $this->userAuthorizeAdministrator('Admin.homeAdmin');
     }
 
 }

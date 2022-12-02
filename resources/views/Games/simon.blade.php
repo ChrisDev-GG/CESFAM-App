@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Simon dice - By parzibyte</title>
     <script src="{{asset('js/simon_d3.min.js')}}"></script>
     <script src="{{asset('js/simon_sweetalert2.min.js')}}"></script>
@@ -36,10 +37,28 @@
 
             <div id="contenedorJuego"></div>
             <br>
+
+            <input type="text" id="token" name="token" value="{{ csrf_token() }}" hidden>
+            <input type="text" id="url" name="url" value="{{ url('/send/simon') }}" hidden>
+            <form id="simonForm" method="post" action="" hidden>
+                @csrf
+                <input type="text" id="score" name="score" value="" hidden>
+            </form>
            
         </div>
     </div>
 </main>
+
 <script src="{{asset('js/simon_game.js')}}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script>
+    function sendData(puntaje){
+    let token = $('meta[name="csrf-token"]').attr('content');
+    let route = document.getElementById('url').value;
+        $('#simonForm').attr('action', route+`/${puntaje}`);
+        $('#score').attr('value', puntaje);
+        document.getElementById('simonForm').submit();
+    }
+</script>
 </body>
 </html>

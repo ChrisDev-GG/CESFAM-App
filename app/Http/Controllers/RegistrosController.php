@@ -9,6 +9,6 @@ class RegistrosController extends Controller
     private $viewRegistros = 'Registros.registros';
 
     public function index(){
-        return view($this->viewRegistros);
+        return $this->userAuthorizeAdministrator($this->viewRegistros);
     }
 }

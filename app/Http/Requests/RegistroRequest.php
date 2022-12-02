@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Factory as ValidationFactory;
 
 class RegistroRequest extends FormRequest
 {
@@ -35,4 +36,5 @@ class RegistroRequest extends FormRequest
             'user_type' => 'required',
         ];
     }
+
 }

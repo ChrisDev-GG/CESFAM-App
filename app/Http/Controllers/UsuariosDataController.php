@@ -22,7 +22,7 @@ class UsuariosDataController extends Controller
     public function index()
     {
         $registros = User::where('user_type','=','3')->get();
-        return view($this->viewUsuarios, [
+        return $this->userAuthorizeAdministratorWithData($this->viewUsuarios, [
             'registros' => $registros,
         ]);
     }
@@ -68,7 +68,7 @@ class UsuariosDataController extends Controller
     public function edit($id)
     {
         $user = User::where('id','=',$id)->first();
-        return view($this->viewUsuariosEdit, [
+        return $this->userAuthorizeAdministratorWithData($this->viewUsuariosEdit, [
             'registro' => $user,
         ]);
     }

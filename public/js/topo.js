@@ -18,14 +18,21 @@ allMoles[num].classList.add('visible')
 
 function startGame() {
 clickTimes = 0
-timeLeft = 60
+timeLeft = 61
 moleAppearTimer = setInterval(() => {
 	if (timeLeft == 0) {
 		Swal.fire({
 			icon: 'success',
 			title: 'Muy Bien...',
 			html: "Numero de Clicks: "+clickTimes+"<br><br> Presione el boton reintentar para volver a jugar",
-		  })
+			confirmButtonText: "Jugar de nuevo",
+		  }).then((result) => {
+			let token = document.getElementById('token').value;
+			let route = document.getElementById('url').value;
+			if (result.isConfirmed) {
+				sendData(clickTimes);
+			}
+		})
 		clearInterval(moleAppearTimer)
 		nextMatch()
 	} else {
@@ -51,6 +58,10 @@ function speak (message) {
 	var voices = window.speechSynthesis.getVoices() 
 	msg.voice = voices[0] 
 	window.speechSynthesis.speak(msg) 
+	Swal.fire({
+		title: 'Golpea al topo',
+		html: 'En este juego tendras que golpear al topo todas las veces que puedas en un minuto, buena suerte',
+	  })
 } 
 
 	speak('En este juego tendras que golpear al topo todas las veces que puedas en un minuto, buena suerte');

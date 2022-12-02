@@ -194,8 +194,22 @@ const juego = () => {
             } else {
 
                 $btnComenzar.disabled = false;
-                Swal.fire("Perdiste", `Has perdido. Tu puntuación fue de ${puntaje}. Puedes jugar de nuevo cuando quieras`);
-                
+                let juego = 2;
+                //Swal.fire("Perdiste", `Has perdido. Tu puntuación fue de ${puntaje}. Puedes jugar de nuevo cuando quieras`);
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Has perdido...',
+                    html: `Tu puntaje: ${puntaje}. Presione el boton nuevo juego para volver a intentarlo`,
+                    confirmButtonText: "Jugar de nuevo",
+                  }).then((result) => {
+                    let token = document.getElementById('token').value;
+                    let route = document.getElementById('url').value;
+                    if (result.isConfirmed) {
+                        sendData(puntaje);
+                    }
+                    
+                    
+                  });
             }
         });
     });
@@ -239,6 +253,25 @@ function speak (message) {
     msg.voice = voices[0] 
     window.speechSynthesis.speak(msg) 
 } 
+
+/* function sendData(puntaje){
+    let score = $('#score').val;
+    let route = $('#url').val;
+    $.ajax({
+        headers: {
+            _token: score,
+        },
+        type: "POST",
+        url: route,
+        data: {
+            score: puntaje,
+        },
+        dataType: "JSON",
+        success: function(respu){
+            console.log(respu);
+        }
+    });
+} */
 
     speak('bienvenido, mira los colores que se van iluminando, continue la secuencia en el orden correcto, buena suerte');
 

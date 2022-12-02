@@ -22,7 +22,7 @@ class AdminsDataController extends Controller
     public function index()
     {
         $registros = User::where('user_type','!=','3')->get();
-        return view($this->viewAdmin, [
+        return $this->userAuthorizeAdministratorWithData($this->viewAdmin, [
             'registros' => $registros,
         ]);
     }
@@ -34,7 +34,7 @@ class AdminsDataController extends Controller
      */
     public function create()
     {
-        return view($this->viewAdminCreate);
+        return $this->userAuthorizeAdministrator($this->viewAdminCreate);
     }
 
     /**
@@ -80,7 +80,7 @@ class AdminsDataController extends Controller
     public function edit($id)
     {
         $user = User::where('id','=',$id)->first();
-        return view($this->viewAdminEdit, [
+        return $this->userAuthorizeAdministratorWithData($this->viewAdminEdit, [
             'registro' => $user,
         ]);
     }

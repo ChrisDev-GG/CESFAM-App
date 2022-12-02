@@ -35,6 +35,24 @@
 				
 			</div>
 		</div>
+		<input type="text" id="token" name="token" value="{{ csrf_token() }}" hidden>
+		<input type="text" id="url" name="url" value="{{ url('/send/topo') }}" hidden>
+		<form id="topoForm" method="post" action="" hidden>
+			@csrf
+			<input type="text" id="score" name="score" value="" hidden>
+		</form>
+		
+
 		<script src="{{asset('js/topo.js')}}"></script>
+		<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script>
+    function sendData(puntaje){
+		let token = $('meta[name="csrf-token"]').attr('content');
+		let route = document.getElementById('url').value;
+		$('#topoForm').attr('action', route+`/${puntaje}`);
+		$('#score').attr('value', puntaje);
+		document.getElementById('topoForm').submit();
+    }
+</script>
 	</body>
 </html>

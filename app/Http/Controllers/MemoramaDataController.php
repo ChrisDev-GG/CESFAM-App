@@ -29,7 +29,7 @@ private $viewMemorama = 'Registros.memorama_registros';
             $registro->fullname = $fullname;
             $registro->username = $username;
         }
-        return view($this->viewMemorama, [
+        return $this->userAuthorizeAdministratorWithData($this->viewMemorama, [
             'registros' => $registros,
         ]);
     }

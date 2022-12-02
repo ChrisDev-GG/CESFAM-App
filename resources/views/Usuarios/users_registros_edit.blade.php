@@ -2,7 +2,7 @@
 
 @section('main-content')
 <div>
-    <a href="/gestor/usuarios/admins"><img class="back-img" src="{{asset('img/back.png')}}" width="50" alt="back icon" style="padding-bottom: 15px"></a>
+    <a href="/gestor/usuarios/users"><img class="back-img" src="{{asset('img/back.png')}}" width="50" alt="back icon" style="padding-bottom: 15px"></a>
     <h1 class="h1-titles" style="display: inline">Modificar datos del usuario</h1>
 </div><br>
 

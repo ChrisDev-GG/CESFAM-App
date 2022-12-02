@@ -42,7 +42,7 @@ class Controller extends BaseController
      */
     public function userAuthorizeAdministrator($view){
         if(Auth::check()&&Auth::user()->active){
-            if(Auth::user()->user_type != 'root' && Auth::user()->user_type != 'admin'){
+            if(Auth::user()->user_type != 1 && Auth::user()->user_type != 2){
                 return view('Home.start');
             }
             return view($view);
@@ -51,7 +51,7 @@ class Controller extends BaseController
     }
     public function userAuthorizeAdministratorWithData($view, $data){
         if(Auth::check()&&Auth::user()->active){
-            if(Auth::user()->user_type != 'root' && Auth::user()->user_type != 'admin'){
+            if(Auth::user()->user_type != 1 && Auth::user()->user_type != 2){
                 return view('Home.start');
             }
             return view($view, $data);

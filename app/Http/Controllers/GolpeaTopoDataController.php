@@ -17,7 +17,7 @@ class GolpeaTopoDataController extends Controller
      */
     public function index()
     {
-        $registros = Score::where('id_game', '=', 3)->get();
+        $registros = Score::where('id_game', '=', 2)->get();
         foreach($registros as $registro){
             $user = User::where('id', '=', $registro->id_user)->first();
             $fullname = $user->names.' '.$user->surenames;
@@ -27,7 +27,7 @@ class GolpeaTopoDataController extends Controller
             $registro->fullname = $fullname;
             $registro->username = $username;
         }
-        return view($this->viewTopo, [
+        return $this->userAuthorizeAdministratorWithData($this->viewTopo, [
             'registros' => $registros,
         ]);
     }

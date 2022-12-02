@@ -1,6 +1,8 @@
         var puntaje = 0;
         var conteo = 0;
 
+        
+
         Swal.fire("Bienvenido al Memorama", 'En este juego tendras que encontrar los pares de imagenes, tienes 28 intentos para completar el juego, sino pierdes, buena suerte! <br><br> Has click en el boton para empezar')
 
         generarTablero()
@@ -62,6 +64,7 @@
                 selecciones = []
                 conteo++;
                 document.getElementById("conteohtml").innerHTML = conteo;
+           
                 if(conteo>=28){
 
                     conteo = 28;
@@ -70,7 +73,13 @@
                         icon: 'error',
                         title: 'Has perdido...',
                         html: "tu puntaje: "+puntaje+" intentos: "+conteo+"<br><br> Presione el boton nuevo juego para volver a intentarlo",
-                      })
+                      }).then((result) => {
+                        let token = document.getElementById('token').value;
+                        let route = document.getElementById('url').value;
+                        if (result.isConfirmed) {
+                            sendData(puntaje);
+                        }
+                        });
                       function speak (message) {
                         var msg = new SpeechSynthesisUtterance(message) 
                         var voices = window.speechSynthesis.getVoices() 
@@ -83,27 +92,13 @@
 
                 }
       
-                if(puntaje == 12){
-
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Has Ganado...',
-                        html: "tu puntaje: "+puntaje+" intentos: "+conteo+"<br><br> Presione el boton nuevo juego para volver a intentarlo",
-                      })
-                      function speak (message) {
-                        var msg = new SpeechSynthesisUtterance(message) 
-                        var voices = window.speechSynthesis.getVoices() 
-                        msg.voice = voices[0] 
-                        window.speechSynthesis.speak(msg) 
-                    } 
-            
-                        speak('Has ganado,tu puntaje es de "'+puntaje+'" puntos y fueron '+conteo+' intentos " Presione el boton nuevo juego para volver a intentarlo');
-            
-
-                }
+                
                 
             }
+            
         }
+        
+        
 
         function deseleccionar(selecciones) {
             setTimeout(() => {
@@ -125,10 +120,41 @@
 
                     document.getElementById("puntajehtml").innerHTML = puntaje;
 
+                    if(puntaje == 1200){
+
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Has Ganado...',
+                            html: "tu puntaje: "+puntaje+" intentos: "+conteo+"<br><br> Presione el boton nuevo juego para volver a intentarlo",
+                          }).then((result) => {
+                        let token = document.getElementById('token').value;
+                        let route = document.getElementById('url').value;
+                        if (result.isConfirmed) {
+                            sendData(puntaje);
+                        }
+                        });
+                          function speak (message) {
+                            var msg = new SpeechSynthesisUtterance(message) 
+                            var voices = window.speechSynthesis.getVoices() 
+                            msg.voice = voices[0] 
+                            window.speechSynthesis.speak(msg) 
+                        } 
+                
+                            speak('Has ganado,tu puntaje es de "'+puntaje+'" puntos y fueron '+conteo+' intentos " Presione el boton nuevo juego para volver a intentarlo');
+                
+            
+                    }
+
+                    
+               
+
                     //window.alert(puntaje);
                 }
             }, 1000);
         }
+        
+        
+
         document.querySelector("#btn-speak")
         .onclick = () => {
         const text = "En este juego tendras que encontrar los pares de imagenes, tienes 28 intentos para completar el juego, sino pierdes, buena suerte!";
@@ -141,7 +167,29 @@
 
         
         }
+
+
+        //----------------------------------------
+
+        $(document).on('ready',function(){
+            $('#btn-ingresar').click(function(){
+          
+              var url = "ver.php";                                      
+          
+              $.ajax({                        
+                 type: "POST",                 
+                 url: url,                    
+                 data: $("#formulario").serialize(),
+                 success: function(data)            
+                 {
+                   $('#resp').html(data);           
+                 }
+               });
+            });
+          });
+
         
+        //-----------------------------------------
 
         function instrucciones(){
 

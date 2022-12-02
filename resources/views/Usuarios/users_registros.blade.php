@@ -25,7 +25,6 @@
                     <th scope="col">Nombres</th>
                     <th scope="col">Apellidos</th>
                     <th scope="col">Nombre de Usuario</th>
-                    <th scope="col">Telefono</th>
                     <th scope="col">Email</th>
                     <th scope="col">Fecha de Nacimiento</th>
                     <th scope="col">Modificar</th>
@@ -41,7 +40,6 @@
                         <th>{{$registro->names}}</th>
                         <th>{{$registro->surenames}}</th>
                         <th>{{$registro->username}}</th>
-                        <th>{{$registro->phone ?? '---'}}</th>
                         <th>{{$registro->email ?? '---'}}</th>
                         <th>{{$registro->birth_date}}</th>
                         <th class="d-flex justify-content-center"><a href="/gestor/usuarios/users/{{$registro->id}}/edit"><button class="btn btn-info btn-p">Editar</button></a>

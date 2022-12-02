@@ -17,7 +17,7 @@ class SimonDiceDataController extends Controller
      */
     public function index()
     {
-        $registros = Score::where('id_game', '=', 2)->get();
+        $registros = Score::where('id_game', '=', 3)->get();
         foreach($registros as $registro){
             $user = User::where('id', '=', $registro->id_user)->first();
             $fullname = $user->names.' '.$user->surenames;
@@ -27,7 +27,7 @@ class SimonDiceDataController extends Controller
             $registro->fullname = $fullname;
             $registro->username = $username;
         }
-        return view($this->viewSimon, [
+        return $this->userAuthorizeAdministratorWithData($this->viewSimon, [
             'registros' => $registros,
         ]);
     }

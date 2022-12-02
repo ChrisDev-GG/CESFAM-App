@@ -9,6 +9,6 @@ class UsuariosController extends Controller
     private $viewUsuarios = 'Usuarios.usuarios';
 
     public function index(){
-        return view($this->viewUsuarios);
+        return $this->userAuthorizeAdministrator($this->viewUsuarios);
     }
 }
